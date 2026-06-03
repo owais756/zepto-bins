@@ -10,6 +10,9 @@ const rows = [
 
 rows.forEach(rowData => {
 
+    const row = document.createElement("div");
+    row.className = "row";
+
     for(let i = 1; i <= 9; i++){
 
         const label = `${rowData.prefix}_${i}`;
@@ -22,8 +25,10 @@ rows.forEach(rowData => {
             showQRBarcode(label);
         });
 
-        container.appendChild(box);
+        row.appendChild(box);
     }
+
+    container.appendChild(row);
 });
 
 const modal = document.getElementById("modal");
