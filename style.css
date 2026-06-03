@@ -18,17 +18,23 @@ body{
 
 h1{
     text-align:center;
-    margin-bottom:20px;
     color:white;
-    font-size:2rem;
-    font-weight:bold;
+    margin-bottom:20px;
 }
 
-/* Responsive Grid */
+/* Grid Container */
 
 #grid-container{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+/* Desktop */
+
+.row{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+    grid-template-columns:repeat(9,1fr);
     gap:10px;
 }
 
@@ -37,8 +43,8 @@ h1{
     display:flex;
     justify-content:center;
     align-items:center;
-    border:2px solid rgba(255,255,255,0.3);
     border-radius:12px;
+    border:2px solid rgba(255,255,255,0.3);
     font-weight:bold;
     cursor:pointer;
     transition:0.2s;
@@ -50,7 +56,7 @@ h1{
     transform:scale(1.05);
 }
 
-/* Box Colors */
+/* Colors */
 
 .blue{
     background:#2196F3;
@@ -77,6 +83,24 @@ h1{
     color:white;
 }
 
+/* Mobile Layout */
+
+@media (max-width:768px){
+
+    .row{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .box{
+        min-height:60px;
+        font-size:14px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+}
+
 /* Modal */
 
 .modal{
@@ -97,13 +121,12 @@ h1{
     border-radius:15px;
     text-align:center;
     position:relative;
-    box-shadow:0 8px 25px rgba(0,0,0,0.25);
 }
 
 #close-btn{
     position:absolute;
-    right:15px;
     top:10px;
+    right:15px;
     font-size:30px;
     cursor:pointer;
 }
@@ -121,45 +144,25 @@ h1{
 
 #barcode{
     width:100%;
-    margin-top:15px;
 }
 
-/* Toast Notification */
+/* Toast */
 
 #toast{
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#ffffff;
+    background:white;
     color:#6A0DAD;
     padding:12px 20px;
     border-radius:10px;
     font-weight:bold;
     opacity:0;
-    pointer-events:none;
     transition:0.3s;
+    pointer-events:none;
     z-index:9999;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
 #toast.show{
     opacity:1;
-}
-
-/* Mobile Optimization */
-
-@media(max-width:480px){
-
-    h1{
-        font-size:1.5rem;
-    }
-
-    .box{
-        min-height:60px;
-        font-size:14px;
-    }
-
-    .modal-content{
-        width:95%;
-    }
 }
